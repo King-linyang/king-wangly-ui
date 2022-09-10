@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite  --mode dev",
+    "build": "vue-tsc --noEmit && vite build --mode prd",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "pinia": "^2.0.22",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",
