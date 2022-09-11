@@ -14,7 +14,16 @@
       "ESNext",
       "DOM"
     ],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    // 配合别名使用，就是@根目录
+    "paths": {
+      "@": [
+        "./src"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
+    },
   },
   "include": [
     "src/**/*.ts",

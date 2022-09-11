@@ -1,12 +1,17 @@
 <template>
-  <div>
+  <router-view #default="{route,Component}">
+    <transition :enter-active-class="`animate__animated ${route.meta.transition}`">
+      <component :is="Component"></component>
+    </transition>
+  </router-view>
+  <!-- <div>
     <router-link :to="{name:'Login'}">Login</router-link>
     <router-link style="margin-left:10px" :to="{name:'Reg'}">Reg</router-link>
   </div>
   <div>
     <router-view></router-view>
-  </div>
-  <div>
+  </div> -->
+  <!-- <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
@@ -14,17 +19,31 @@
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="Vite + Vue" /> -->
 </template>
-
 <script setup lang="ts">
+
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+
+
 </script>
   
 
-<style scoped>
+<style scoped lang="less">
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

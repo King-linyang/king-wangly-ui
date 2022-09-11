@@ -1,7 +1,5 @@
 <template>
-    <div>
-        你好-->登录
-    </div>
+    demo1.vue
 </template>
 
 <script setup lang="ts">

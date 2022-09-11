@@ -1,7 +1,5 @@
 <template>
-    <div>
-        你好--红色
-    </div>
+    demo2.vue
 </template>
 
 <script setup lang="ts">

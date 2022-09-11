@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useTestStore } from '../store/index'
+import { useTestStore } from '@/store/index'
 
 const testData = import.meta.env.VITE_APP_TITLE
 
