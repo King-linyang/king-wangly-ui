@@ -35,6 +35,15 @@ const routes: Array<RouteRecordRaw> = [
             transition: "animate__bounceIn",
         },
         component: () => import('@/views/Red.vue')
+    },
+    {
+        path: "/editTest",
+        name: "EditTest",
+        meta: {
+            title: '编辑案例页面',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/EditTest.vue')
     }
 ]
 
