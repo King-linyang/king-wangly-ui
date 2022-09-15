@@ -1,4 +1,4 @@
-import { createApp, toRaw, createVNode, render } from 'vue'
+import { createApp, toRaw, createVNode, render, CreateAppFunction } from 'vue'
 import './style.css'
 import App from './App.vue'
 import { createPinia, PiniaPluginContext } from 'pinia'
@@ -6,7 +6,18 @@ import router from './router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
+import { RouterHistory, createRouter } from 'vue-router'
 
+//codemirror 代码编辑器
+import { createTheme, Theme } from '@/composables/codemirror/theme'
+
+export interface AppCreatorOptions {
+    appCreator: CreateAppFunction<Element>
+    routerHistory: RouterHistory
+    initTheme: Theme
+    language: string
+    userAgent: string
+}
 
 import LoadingBar from '@/components/LoadingBar.vue'
 //转成虚拟dom
@@ -54,7 +65,12 @@ store.use(piniaPlugin({
 
 const app = createApp(App)
 
+//代码编辑器主题
+const theme = createTheme(Theme.Light)
 
+
+//注册主题
+app.use(theme)
 
 //注册pinia
 app.use(store)
@@ -88,3 +104,4 @@ router.afterEach((to, from) => {
 
 
 app.mount('#app')
+

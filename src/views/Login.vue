@@ -95,7 +95,7 @@ const initRouter = () => {
             //这儿不能使用@
             component: () => import(/* @vite-ignore */`../views/${route.component}`)
         })
-        router.push('/editTest')
+        router.push('/codemirror/editTest')
         console.log(router.getRoutes);
 
     })

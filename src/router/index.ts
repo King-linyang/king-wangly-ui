@@ -37,13 +37,13 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Red.vue')
     },
     {
-        path: "/editTest",
+        path: "/codemirror/editTest",
         name: "EditTest",
         meta: {
             title: '编辑案例页面',
             transition: "animate__bounceIn",
         },
-        component: () => import('@/views/EditTest.vue')
+        component: () => import('@/views/codemirror/EditTest.vue')
     }
 ]
 
