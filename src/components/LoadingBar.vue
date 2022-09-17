@@ -3,7 +3,7 @@
         <div ref="bar" class="bar"></div>
     </div>
 </template>
-    
+
 <script setup lang='ts'>
 import { ref, onMounted } from 'vue'
 let speed = ref<number>(1)
@@ -22,9 +22,8 @@ const startLoading = () => {
             window.cancelAnimationFrame(timer.value)
         }
     })
- 
 }
- 
+
 const endLoading = () => {
     let dom = bar.value as HTMLElement;
     setTimeout(() => {
@@ -33,22 +32,22 @@ const endLoading = () => {
             dom.style.width = speed.value + '%'
         })
     }, 500)
- 
+
 }
- 
- 
+
 defineExpose({
     startLoading,
     endLoading
 })
 </script>
-    
+
 <style scoped lang="less">
 .wraps {
     position: fixed;
     top: 0;
     width: 100%;
     height: 2px;
+
     .bar {
         height: inherit;
         width: 0;
