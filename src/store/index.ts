@@ -1,13 +1,10 @@
 import { defineStore } from 'pinia'
 import { Names } from './store-name'
 
-
-
 type Result = {
   name: string
   isChu: boolean
 }
-
 
 const Login = (): Promise<Result> => {
   return new Promise((resolve) => {

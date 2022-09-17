@@ -1,60 +1,38 @@
 <template>
   <router-view #default="{route,Component}">
-    <transition :enter-active-class="`animate__animated ${route.meta.transition}`">
+    <!-- <transition :enter-active-class="`animate__animated ${route.meta.transition}`"> -->
       <component :is="Component"></component>
-    </transition>
+    <!-- </transition> -->
   </router-view>
-  <!-- <div>
-    <router-link :to="{name:'Login'}">Login</router-link>
-    <router-link style="margin-left:10px" :to="{name:'Reg'}">Reg</router-link>
-  </div>
-  <div>
-    <router-view></router-view>
-  </div> -->
-  <!-- <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" /> -->
 </template>
+
 <script setup lang="ts">
-
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-// import HelloWorld from './components/HelloWorld.vue'
-
-
 </script>
   
-
 <style scoped lang="less">
-* {
-  padding: 0;
-  margin: 0;
-}
+// * {
+//   padding: 0;
+//   margin: 0;
+// }
 
-html,
-body,
-#app {
-  height: 100%;
-  overflow: hidden;
-}
+// html,
+// body,
+// #app {
+//   height: 100%;
+//   overflow: hidden;
+// }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
+// .logo {
+//   height: 6em;
+//   padding: 1.5em;
+//   will-change: filter;
+// }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
+// .logo:hover {
+//   filter: drop-shadow(0 0 2em #646cffaa);
+// }
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+// .logo.vue:hover {
+//   filter: drop-shadow(0 0 2em #42b883aa);
+// }
 </style>

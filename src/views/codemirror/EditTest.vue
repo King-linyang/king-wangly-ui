@@ -1,4 +1,7 @@
 <template>
+    <div class="editBoxKing" contenteditable="true" style="background-color: white;">
+        <span>asdfasdfasdfas</span>
+    </div>
     <div class="example">
         <toolbar :config="config" :disabled="loading" :themes="Object.keys(themes)" :languages="Object.keys(languages)"
             @language="ensureLanguageCode" />
