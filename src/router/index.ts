@@ -1,6 +1,9 @@
 //引入路由对象
 import { createRouter, createWebHistory, createWebHashHistory, createMemoryHistory, RouteRecordRaw } from 'vue-router'
 
+/* Layout */
+import Layout from '@/Layout'
+
 //vue2 mode history vue3 createWebHistory
 //vue2 mode  hash  vue3  createWebHashHistory
 //vue2 mode abstact vue3  createMemoryHistory
@@ -16,9 +19,23 @@ declare module 'vue-router' {
 //路由数组的类型 RouteRecordRaw
 // 定义一些路由
 // 每个路由都需要映射到一个组件。
-const routes: Array<RouteRecordRaw> = [
+//公共路由
+export const constantRoutes: Array<RouteRecordRaw> = [
     {
-        path: "/",
+        path: '',
+        component: Layout,
+        redirect: '/index',
+        children: [
+            {
+                path: '/index',
+                component: () => import('@/views/index.vue'),
+                name: 'Index',
+                //   meta: { title: '首页', icon: 'dashboard', affix: true }
+            }
+        ]
+    },
+    {
+        path: "/denglu",
         name: "Login",
         meta: {
             title: '登录页面',
@@ -46,10 +63,21 @@ const routes: Array<RouteRecordRaw> = [
     }
 ]
 
+//动态路由-----做权限
+export const dynamicRoutes: Array<RouteRecordRaw> = [
+
+]
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
     // history: createWebHistory(),
-    routes
+    routes: constantRoutes,
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { top: 0 }
+        }
+    },
 })
 
 //导出router
