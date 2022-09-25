@@ -9,7 +9,7 @@ import 'element-plus/dist/index.css'
 import { RouterHistory, createRouter } from 'vue-router'
 
 //codemirror 代码编辑器
-import { createTheme, Theme } from '@/composables/codemirror/theme'
+import { createTheme, Theme } from '@/composables/theme'
 
 export interface AppCreatorOptions {
     appCreator: CreateAppFunction<Element>

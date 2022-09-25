@@ -1,9 +1,6 @@
 //引入路由对象
 import { createRouter, createWebHistory, createWebHashHistory, createMemoryHistory, RouteRecordRaw } from 'vue-router'
 
-/* Layout */
-import Layout from '@/Layout'
-
 //vue2 mode history vue3 createWebHistory
 //vue2 mode  hash  vue3  createWebHashHistory
 //vue2 mode abstact vue3  createMemoryHistory
@@ -22,20 +19,7 @@ declare module 'vue-router' {
 //公共路由
 export const constantRoutes: Array<RouteRecordRaw> = [
     {
-        path: '',
-        component: Layout,
-        redirect: '/index',
-        children: [
-            {
-                path: '/index',
-                component: () => import('@/views/index.vue'),
-                name: 'Index',
-                //   meta: { title: '首页', icon: 'dashboard', affix: true }
-            }
-        ]
-    },
-    {
-        path: "/denglu",
+        path: "/",
         name: "Login",
         meta: {
             title: '登录页面',
@@ -53,19 +37,18 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Red.vue')
     },
     {
-        path: "/codemirror/editTest",
+        path: "/codemirror/codemirror",
         name: "EditTest",
         meta: {
             title: '编辑案例页面',
             transition: "animate__bounceIn",
         },
-        component: () => import('@/views/codemirror/EditTest.vue')
+        component: () => import('@/views/codemirror/CodeMirror.vue')
     }
 ]
 
 //动态路由-----做权限
 export const dynamicRoutes: Array<RouteRecordRaw> = [
-
 ]
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
