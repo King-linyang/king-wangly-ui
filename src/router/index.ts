@@ -44,6 +44,51 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             transition: "animate__bounceIn",
         },
         component: () => import('@/views/codemirror/CodeMirror.vue')
+    },
+    {
+        path: "/MonacoEditor/MonacoEditor",
+        name: "MonacoEditor",
+        meta: {
+            title: 'monaco-editor微软vscode富文本',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/monaco-editor/MonacoEditor.vue')
+    },
+    {
+        path: "/MonacoHelloWorld/MonacoHelloWorldDiffV1",
+        name: "MonacoHelloWorldDiffV1",
+        meta: {
+            title: 'monaco-editor微软vscode富文本',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/monaco-editor/MonacoHelloWorldDiffV1.vue')
+    },
+    {
+        path: "/MonacoHelloWorld/MonacoHelloWorldV1",
+        name: "MonacoHelloWorldV1",
+        meta: {
+            title: 'monaco-editor微软vscode富文本',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/monaco-editor/MonacoHelloWorldV1.vue')
+    },
+    {
+        path: "/GoJsRelyV1/GoJsRelyV1",
+        name: "GoJsRelyV1",
+        meta: {
+            title: 'monaco-editor微软vscode富文本',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/gojs-rely/GoJsRelyV1.vue')
+    },
+    {
+        path: "/GoJsRelyV1/GoJsRelyV1Tmp",
+        name: "GoJsRelyV1Tmp",
+        meta: {
+            title: 'monaco-editor微软vscode富文本',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/gojs-rely/GoJsRelyV1Tmp.vue')
     }
 ]
 
