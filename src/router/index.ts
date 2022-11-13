@@ -89,6 +89,42 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             transition: "animate__bounceIn",
         },
         component: () => import('@/views/gojs-rely/GoJsRelyV1Tmp.vue')
+    },
+    {
+        path: "/ant-v-x6/AntVX6",
+        name: "AntVX6",
+        meta: {
+            title: 'antvx6蚂蚁可视化产品',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/ant-v-x6/AntVX6.vue')
+    },
+    {
+        path: "/ant-v-x6/AntVX6Tmp",
+        name: "AntVX6Tmp",
+        meta: {
+            title: 'antvx6蚂蚁可视化产品',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/ant-v-x6/AntVX6Tmp.vue')
+    },
+    {
+        path: "/ant-v-x6/DAGTmp",
+        name: "DAGTmp",
+        meta: {
+            title: 'antvx6蚂蚁可视化产品',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/ant-v-x6/DAGTmp.vue')
+    },
+    {
+        path: "/ant-v-x6/NodeTmp",
+        name: "NodeTmp",
+        meta: {
+            title: 'antvx6蚂蚁可视化产品',
+            transition: "animate__bounceIn",
+        },
+        component: () => import('@/views/ant-v-x6/NodeTmp.vue')
     }
 ]
 

@@ -40,18 +40,27 @@ onMounted(() => {
                 }).ofObject()  // no name means bind to the whole Part
             ),
             $(go.TextBlock, { margin: 8 }, // Specify a margin to add some room around the text--给文字旁边添加一点空间
-                new go.Binding("text", "key")
+                new go.Binding("text", "key"),//文字绑定属性和值
+                new go.Binding("stroke", "fontColor"),//文职颜色
+                new go.Binding("background", "background"),//文职背景颜色
+                new go.Binding("font", "fontStyle"),//字体样式
             ));// TextBlock.text is bound to Node.data.key
 
 
     //连接
     diagram.linkTemplate =
         $(go.Link,
+            {
+                // routing: go.Link.Orthogonal,  // may be either Orthogonal or AvoidsNodes
+                // curve: go.Link.JumpOver,//节点连线交互会凸起跳过
+                toShortLength: 8 // shortens path to avoid interfering with arrowhead
+            },
             $(go.Shape,
+                { fromArrow: "Chevron", fill: "red" },// the "from" end arrowhead--连线起始点样式
                 new go.Binding("stroke", "color"),  // shape.stroke = data.color
                 new go.Binding("strokeWidth", "thick")),  // shape.strokeWidth = data.thick
             $(go.Shape,
-                { toArrow: "OpenTriangle", fill: null },
+                { toArrow: "StretchedDiamond", fill: "red" },//连线末端样式-- the "to" end arrowhead
                 new go.Binding("stroke", "color"),  // shape.stroke = data.color--连接线颜色
                 new go.Binding("strokeWidth", "thick"))  // shape.strokeWidth = data.thick-连接线宽度
         );
@@ -61,16 +70,16 @@ onMounted(() => {
     var nodeDataArray = [ // a JavaScript Array of JavaScript objects, one per node;
         // the "color" property is added specifically for this app
         //key is name
-        { key: "Alpha", color: "lightblue", loc: "0 0", stroke: false, strokeWidth: 10 },
+        { key: "Alpha", color: "red", loc: "0 0", stroke: false, strokeWidth: 5, fontColor: "red", background: "lightblue", fontStyle: "bold 14pt serif" },
         { key: "Beta", color: "orange", loc: "100 0", stroke: true },
-        { key: "Gamma", color: "lightgreen", loc: "0 100" },
-        { key: "Delta", color: "pink", loc: "100 100" }
+        { key: "Gamma", color: "lightgreen", loc: "0 100", background: "lightblue" },
+        { key: "Delta", color: "red", loc: "100 100", strokeWidth: 5 }
     ]
     //描述连接信息
     // a JavaScript Array of JavaScript objects, one per link
     //thick  连接线宽
     var linkDataArray = [
-        { from: "Alpha", to: "Beta", color: "blue", thick: 2 },
+        { from: "Alpha", to: "Beta", color: "blue", thick: 4 },
         { from: "Alpha", to: "Gamma", color: "blue", thick: 2 },
         { from: "Gamma", to: "Delta", color: "blue", thick: 2 },
         { from: "Delta", to: "Alpha", color: "pink", thick: 2 }
@@ -86,8 +95,15 @@ onMounted(() => {
     const flash = () => {
         // all model changes should happen in a transaction
         diagram.model.commit((m) => {
-            var data = m.nodeDataArray[0];  // get the first node data
-            m.set(data, "stroke", !data.stroke);
+            var dataM = m.nodeDataArray
+            //节点红色闪烁
+            dataM.forEach((item) => {
+                if (item.color === 'red') {
+                    m.set(item, "stroke", !item.stroke);
+                }
+            })
+            // var data = m.nodeDataArray[0];  // get the first node data
+            // m.set(data, "stroke", !data.stroke);
         }, "flash");
     }
     const loop = () => {

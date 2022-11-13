@@ -10,6 +10,7 @@ export default defineConfig({
     // 配置路径别名
     alias: {
       '@': path.resolve(__dirname, './src'),
+      'vue': 'vue/dist/vue.esm-bundler.js'
     },
   },
   // 强制预构建插件包
